@@ -1,0 +1,60 @@
+// This is a sample SCSS typography setup file
+// You can modify and add more typography styles as per your requirement
+
+// Define the base font size for the document
+@import 'vars';
+
+// Define the base typography styles
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: calc($base-font-size / 2);
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+}
+
+h1 {
+  font-size: $font-size-extra-large;
+  line-height: $line-height-extra-large;
+}
+
+h2 {
+  font-size: $font-size-large;
+  line-height: $line-height-large;
+}
+
+h3 {
+  font-size: $font-size-medium;
+  line-height: $line-height-medium;
+}
+
+h4 {
+  font-size: $font-size-medium;
+  line-height: $line-height-medium;
+}
+
+h5 {
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+}
+
+h6 {
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: $base-font-size;
+}
+
+// @font-face {
+//   font-family: Proxima Nova;
+//   font-weight: 400;
+//   src: url(/fonts/proxima-nova/400-regular.woff) format("woff");
+// }

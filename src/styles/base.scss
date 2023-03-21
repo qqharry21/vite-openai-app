@@ -1,0 +1,90 @@
+@import 'vars';
+
+// 定義亮色模式的變數
+$primary-color: #007bff;
+$background-color: #f8f9fa;
+$text-color: #333;
+
+// 定義深色模式的變數
+$dark-primary-color: #b3e5fc;
+$dark-background-color: #121212;
+$dark-text-color: #fff;
+
+// 淺色模式的樣式
+:root {
+  --primary-color: #{$primary-color};
+  --background-color: #{$background-color};
+  --text-color: #{$text-color};
+}
+
+// 深色模式的樣式
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #{$dark-primary-color};
+    --background-color: #{$dark-background-color};
+    --text-color: #{$dark-text-color};
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-size-adjust: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: $base-font-size; // 設置根字體大小，方便後續使用 rem 單位
+  scroll-behavior: smooth;
+}
+
+// 初始化 BODY
+body {
+  min-height: 100dvh; // 設置最小高度為 100dvh
+  min-height: 100vh; // 因為 IE 不支援 dvh，所以需要再設置一次 100vh
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: $font-family-primary;
+  font-size: 1rem; // 設置基準字體大小為 1rem
+  font-weight: $font-weight-regular;
+  line-height: $line-height-medium;
+}
+
+// 設置 BOX-SIZING
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// 清除列表樣式
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+// 清除連結樣式
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

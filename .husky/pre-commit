@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo '🛠️🛠️🛠️  Styling, testing and building your project before committing  🛠️🛠️🛠️'
+
+npx lint-staged ||
+(
+  echo '🚨🚨🚨  Check failed  🚨🚨🚨'
+  false
+)

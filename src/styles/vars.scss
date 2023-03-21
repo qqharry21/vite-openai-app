@@ -1,0 +1,210 @@
+// Colors
+$default-color: rgb(168 168 168);
+$brand-color: hsl(340deg 100% 45%);
+$brand-color-hover: hsl(340deg 100% 50%);
+$brand-color-dark: hsl(340deg 100% 34%);
+$brand-color-fake-transparent: hsl(340deg 100% 45% / 99%);
+
+$brand-color-secondary: hsl(250deg 20% 15%);
+$brand-color-secondary-hover: hsl(250deg 20% 20%);
+
+$green: hsl(120deg 100% 50%);
+$yellow: hsl(50deg 100% 50%);
+$red: hsl(0deg 100% 50%);
+
+$alert: $yellow;
+
+$gray019: rgb(19 19 19);
+$gray039: rgb(39 39 39);
+$gray051: rgb(51 51 51);
+$gray079: rgb(79 79 79);
+$gray099: rgb(99 99 99);
+$gray108: rgb(108 108 108);
+$gray130: rgb(130 130 130);
+$gray168: rgb(168 168 168);
+$gray182: rgb(182 182 182);
+$gray222: rgb(222 222 222);
+$gray246: rgb(246 246 246);
+
+$light-main: $gray246;
+$dark-main: $gray019;
+$dark-main-60: rgba($dark-main, 0.6);
+$dark-main-90: rgba($dark-main, 0.9);
+
+$foreground-main: $gray222;
+$foreground-secondary: $gray182;
+$foreground-third: $gray168;
+$foreground-forth: $gray130;
+$foreground-fifth: $gray108;
+$foreground-sixth: $gray099;
+
+$background-main: $gray039;
+$background-main-60: rgba($background-main, 0.6);
+$background-main-80: rgba($background-main, 0.8);
+$background-secondary: $gray051;
+
+$white: white;
+$white-015: rgba($white, 0.015);
+$white-03: rgba($white, 0.03);
+$white-05: rgba($white, 0.05);
+$white-10: rgba($white, 0.1);
+$white-15: rgba($white, 0.15);
+$white-20: rgba($white, 0.2);
+$white-25: rgba($white, 0.25);
+$white-30: rgba($white, 0.3);
+$white-40: rgba($white, 0.4);
+$white-50: rgba($white, 0.5);
+$white-60: rgba($white, 0.6);
+$white-80: rgba($white, 0.8);
+$white-90: rgba($white, 0.9);
+
+$black: rgb(0 0 0);
+$black-05: rgba($black, 0.05);
+$black-10: rgba($black, 0.1);
+$black-20: rgba($black, 0.2);
+$black-30: rgba($black, 0.3);
+$black-40: rgba($black, 0.4);
+$black-50: rgba($black, 0.5);
+$black-60: rgba($black, 0.6);
+$black-80: rgba($black, 0.8);
+
+// Font
+$base-font-size: 16px;
+
+// Define the different font families to be used
+$font-family-primary: 'Open Sans', sans-serif;
+$font-family-secondary: 'Roboto', sans-serif;
+
+// Define the different font weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Define the different font sizes
+$font-size-small: 14px;
+$font-size-medium: 16px;
+$font-size-large: 20px;
+$font-size-extra-large: 24px;
+
+// Define the different line heights
+$line-height-small: 1.2;
+$line-height-medium: 1.5;
+$line-height-large: 1.8;
+$line-height-extra-large: 2;
+
+// Define the different text colors
+$text-color-primary: #333;
+$text-color-secondary: #999;
+
+// Gaps
+$gap: 20px;
+
+// Buttons
+$button-gray-color: $foreground-forth;
+$button-gray-color-hover: $foreground-main;
+$button-gray-color-disabled: $white-10;
+$button-gray-background: $white-10;
+$button-gray-background-hover: $white-20;
+$button-gray-mellow-background: $white-05;
+$button-gray-mellow-background-hover: $white-10;
+
+// Focus visible
+$focus-visible-color: rgba($brand-color, 0.8);
+$focus-visible-color-on-brand-color: $white-60;
+
+@mixin focus-visible {
+  box-shadow: inset 0 0 0 2px var(--focus-visible-color, $focus-visible-color);
+}
+
+// Border radius
+$rounded-border-radius-xs: 1px;
+$rounded-border-radius-s: 2px;
+$rounded-border-radius: 3px;
+$rounded-border-radius-l: 5px;
+
+// Tooltip
+$tooltip-border-color: $white-03;
+$tooltip-border-radius: $rounded-border-radius;
+$tooltip-shadow: 0 0 6px 6px $black-20;
+
+$tooltip-border-color: $white-10;
+$tooltip-border-radius: $rounded-border-radius-s;
+$tooltip-shadow: 0 0 3px 3px $black-10;
+
+$tooltip-arrow-width: 6px;
+$tooltip-arrow-length: 24px;
+
+@mixin tooltip-border(
+  $border-color: $tooltip-border-color,
+  $border-radius: $tooltip-border-radius,
+  $shadow: $tooltip-shadow
+) {
+  border-radius: $border-radius;
+  box-shadow: 0 0 0 1px $border-color, $shadow;
+}
+
+@mixin tooltip-background($direction: to bottom, $z-index: 100) {
+  @include tooltip-border;
+  z-index: $z-index;
+  backdrop-filter: blur(20px);
+  background-image: linear-gradient($direction, $black, $black-60 100px);
+}
+
+@mixin tooltip-arrow(
+  $direction: 0 -1px,
+  $width: $tooltip-arrow-width,
+  $length: $tooltip-arrow-length
+) {
+  position: absolute;
+  width: $length;
+  height: $width;
+  color: $black;
+  filter: drop-shadow($direction 0 $tooltip-border-color);
+  pointer-events: none;
+}
+
+// Scrollbar
+@mixin scrollbar-thin {
+  &::-webkit-scrollbar-thumb {
+    border-right: 4px solid currentcolor;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    border-color: currentcolor;
+    background-color: transparent;
+  }
+}
+
+@mixin scrollbar-thick {
+  --scrollbar-size: 15px;
+
+  &::-webkit-scrollbar-thumb:horizontal {
+    border-bottom: 10px solid currentcolor;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb:vertical {
+    border-right: 10px solid currentcolor;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    border-color: currentcolor;
+    background-color: transparent;
+  }
+}
+
+@mixin scrollbar-floating {
+  &::-webkit-scrollbar {
+    background-color: $black-40;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    color: $white-20;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    color: $white-30;
+  }
+}
